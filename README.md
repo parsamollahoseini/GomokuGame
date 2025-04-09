@@ -1,166 +1,81 @@
-Gomoku Game with Advanced Minimax AI
-An advanced implementation of the classic Gomoku (Five in a Row) game that features both Human vs Human and Human vs AI modes. The AI utilizes a Minimax algorithm enhanced with Alpha-Beta Pruning, providing a challenging opponent that evaluates board states using a heuristic function.
+# Gomoku Game with Advanced Minimax AI
 
-Table of Contents
-Overview
+[![Java](https://img.shields.io/badge/Java-1.8%2B-blue.svg)](https://www.java.com) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Features
+An engaging console-based implementation of [Gomoku](https://en.wikipedia.org/wiki/Gomoku) with an intelligent AI opponent using a **Minimax algorithm with Alpha-Beta Pruning**. Play against the AI or challenge a friend in Human vs Human mode.
 
-Architecture and Design
+---
 
-Project Structure
+## Table of Contents
 
-Implementation Details
+- [Overview](#overview)
+- [Features](#features)
+- [Architecture](#architecture)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Algorithm Details](#algorithm-details)
+- [Contribution Guidelines](#contribution-guidelines)
+- [License](#license)
+- [Contact](#contact)
 
-How to Run the Game
+---
 
-Game Instructions
+## Overview
 
-Future Improvements
+This project was developed for the COMP 2080 Data Structures and Algorithms course (Winter 2025). It demonstrates a robust Gomoku game along with:
+- Implementation of win-condition detection.
+- A challenging AI opponent using a depth-limited Minimax algorithm with Alpha-Beta Pruning.
+- Support for both Human vs AI and Human vs Human game modes.
 
-Credits
+---
 
-License
+## Features
 
-Overview
-This project is developed as part of the COMP 2080 Data Structures and Algorithms course (Winter 2025). The application is a console-based Gomoku game that supports both two-player and player versus AI game modes. The AI opponent leverages a Minimax algorithm with Alpha-Beta Pruning to decide optimal moves by evaluating potential board states. While the heuristic evaluation used is a foundational version, it serves as a base for future refinements and enhancements.
+- **Multiple Game Modes:**  
+  - *Human vs AI*: Play against an AI that makes smart decisions using Minimax.
+  - *Human vs Human*: Two players can compete using turn-based gameplay.
 
-Features
-Multiple Game Modes:
+- **Intelligent AI:**  
+  - Utilizes a depth-limited Minimax algorithm with Alpha-Beta Pruning.
+  - Adjustable search depth to balance performance and difficulty.
+  
+- **Interactive Console Interface:**  
+  - Displays a dynamic board with row and column indices.
+  - Ensures robust input validation for a seamless gaming experience.
 
-Human vs Human: Traditional two-player mode.
+- **Modular Codebase:**  
+  - Clearly separated classes for game logic (`GomokuGame`), AI implementation (`MinimaxAI`), and board management (`Board`).
+  - Inline documentation for easy maintenance and future improvements.
 
-Human vs AI: Play against an AI that uses the Minimax algorithm.
+---
 
-Advanced AI Opponent:
+## Architecture
 
-Uses a recursive Minimax algorithm with Alpha-Beta Pruning for efficient decision making.
+The project consists of three main components:
 
-Configurable search depth allows a trade-off between speed and AI strength.
+- **GomokuGame.java:**  
+  Manages the overall game flow, user input, and game mode selection.
 
-Robust Game Mechanics:
+- **MinimaxAI.java:**  
+  Contains the AI logic with a Minimax algorithm enhanced by Alpha-Beta Pruning, along with heuristic evaluation.
 
-Comprehensive input validation ensures reliable user interactions.
+- **Board.java:**  
+  Handles board initialization, symbol placement, win checking, and board display.
 
-Dynamic board display with row and column indices for intuitive gameplay.
+---
 
-Modular Design:
+## Installation
 
-Organized into separate classes (GomokuGame, MinimaxAI, and Board) for clear separation of concerns.
+### Prerequisites
 
-Easy to extend and maintain, with scope for enhancing the heuristic function and game logic.
+- **Java Development Kit (JDK) 1.8 or later**  
+  Download from [Oracle](https://www.oracle.com/java/technologies/downloads/) or [OpenJDK](https://openjdk.java.net/).
 
-Architecture and Design
-Core Components
-GomokuGame.java:
-This is the main driver class that initializes the game, handles user input, manages game modes, and maintains the main game loop. It seamlessly integrates Human vs Human and Human vs AI modes.
+### Setup Instructions
 
-MinimaxAI.java:
-Implements the AI opponent’s logic. The AI simulates moves on a temporary board using the Minimax algorithm, applies Alpha-Beta Pruning to optimize search, and uses a heuristic evaluation to score non-terminal game states.
+1. **Clone the Repository:**
 
-Board.java:
-Responsible for managing the game board. It maintains a 2D array representing the grid, handles cell updates, and includes methods for checking win conditions and drawing the board.
-
-Design Considerations
-Efficiency:
-The AI decision process is optimized with Alpha-Beta Pruning, reducing the computational overhead when evaluating numerous board configurations.
-
-Extendability:
-Each module is designed to be self-contained. For example, the heuristic function in MinimaxAI can be easily replaced or enhanced to consider more complex game scenarios (like open-ended lines or advanced pattern recognition).
-
-Robustness:
-Input validation and proper handling of exceptional cases (such as invalid user input) make the game reliable during play.
-
-Project Structure
-cpp
-Copy
-/GomokuGameProject
-├── Board.java         // Manages the game board and win conditions.
-├── GomokuGame.java    // Main class for game orchestration and user interaction.
-├── MinimaxAI.java     // Implements the AI logic using the Minimax algorithm.
-└── README.md          // This comprehensive project documentation.
-Each Java file contains detailed comments outlining class responsibilities, methods, and key logic sections. The team has followed rigorous documentation practices to support maintainability and future development.
-
-Implementation Details
-AI and Decision Making
-Minimax Algorithm:
-The AI employs a depth-limited minimax algorithm to examine possible moves. It uses a recursive approach to evaluate the optimal move from a given board state.
-
-Alpha-Beta Pruning:
-To improve performance by eliminating branches of the game tree that won’t affect the final decision, the algorithm incorporates Alpha-Beta Pruning. This optimization ensures that the AI can search deeper within a reasonable amount of time.
-
-Heuristic Evaluation:
-When the maximum search depth is reached without a decisive outcome (win, loss, or draw), the AI uses a basic heuristic that assesses board configurations by counting potential streaks (2, 3, or 4 in a row). Although simple, this evaluation function can be fine-tuned to reflect more complex positional advantages and threats.
-
-Board Management
-Grid Structure:
-The board is implemented as a 2D character array. Each cell is initialized with an EMPTY_SLOT and updates as players make their moves.
-
-Win Condition Check:
-After each move, the Board class checks for winning sequences (5 in a row) in all directions (horizontal, vertical, and two diagonals).
-
-How to Run the Game
-Prerequisites
-Java Development Kit (JDK):
-Ensure you have JDK 8 or later installed. You can download the JDK from Oracle or use OpenJDK.
-
-Compile and Run
-Compile the Java Files:
-Open a terminal in the project directory and run:
-
-bash
-Copy
-javac GomokuGame.java MinimaxAI.java Board.java
-Run the Game:
-After successful compilation, start the game with:
-
-bash
-Copy
-java GomokuGame
-Game Instructions
-Startup:
-On launch, the game welcomes you and prompts you to select between Human vs AI or Human vs Human modes.
-
-Player Setup:
-
-For Human vs AI, you will input your name and choose your playing symbol (B or W). The AI will automatically use the alternate symbol.
-
-For Human vs Human, both players enter their names, and symbols are pre-assigned (Player 1 as Black ‘B’, Player 2 as White ‘W’).
-
-Game Loop:
-The game displays the board with row and column numbers. Each turn, the active player enters their move by specifying the row and column numbers.
-
-Win/Draw Detection:
-After every move, the board checks for a winning condition (5 consecutive symbols) or if the board is full (resulting in a draw).
-
-Game End:
-The game concludes by displaying the final board state and announcing the winner or declaring a draw.
-
-Future Improvements
-Enhanced Heuristic:
-Develop a more sophisticated evaluation function that considers open-ended lines, potential threats, and strategic patterns.
-
-Graphical User Interface (GUI):
-Transition from a console-based interface to a rich GUI using libraries such as JavaFX or Swing.
-
-Multithreading:
-Employ multithreaded processing for the AI calculations, enabling a deeper search depth and smoother gameplay on multi-core systems.
-
-Custom Game Options:
-Allow for customizable board sizes, varied win conditions, and adjustable AI difficulty levels.
-
-Credits
-Team Members:
-
-Parsa Molahosseini (Student ID: 101491591)
-
-Mehrad Bayat (Student ID: 101533701)
-
-Jerry-lee Somera (Student ID: 101521229)
-
-Soroush Salari (Student ID: 101537771)
-
-Developed as part of the COMP 2080 Group Project for Winter 2025.
-
-License
-This project is licensed under the MIT License. Feel free to use, modify, and distribute the code as permitted by the license.
+   ```bash
+   git clone https://github.com/yourusername/GomokuGame.git
+   cd GomokuGame
