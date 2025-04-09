@@ -1,13 +1,4 @@
-/**
- * * COMP 2080 - Data Structures and Algorithms
- *  * Winter 2025 - Group Project
- *  * 
- *  * Team Members:
- *  * - Parsa Molahosseini (Student ID: 101491591)
- *  * - Mehrad Bayat (Student ID: 101533701)
- *  * - Jerry-lee Somera (Student ID: 101521229)
- *  * - Soroush Salari (Student ID: 101537771)
- */
+
 
 import java.util.Arrays; // Used for Arrays.fill() and Arrays.copyOf()
 
